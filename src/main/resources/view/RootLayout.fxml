@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane minHeight="250.0" minWidth="450.0" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oliverdd.controllers.RootLayoutController">
+   <top>
+      <MenuBar style="-fx-background-color: #03A9F4;">
+        <menus>
+          <Menu mnemonicParsing="false" style="-fx-text-fill: white;" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleRefresh" text="Refresh" />
+                  <MenuItem mnemonicParsing="false" text="Change city" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Star" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
