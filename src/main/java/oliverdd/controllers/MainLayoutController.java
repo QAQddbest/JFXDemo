@@ -129,6 +129,7 @@ public class MainLayoutController {
                             weaLabel.setText(weaData.getData()[0].getWea());
                             weekLabel.setText(weaData.getData()[0].getWeek());
                             dateLabel.setText(weaData.getData()[0].getDate());
+                            //System.out.println("DDD" + weaData.getData()[0].getWea_img());
                             weaImage.setImage(new Image("/img/" + weaData.getData()[0].getWea_img() + ".png"));
                             // update the ui:load the data on the right
                             day0.setText(weaData.getData()[0].getDay());

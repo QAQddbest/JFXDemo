@@ -3,9 +3,12 @@ package oliverdd.controllers;
 import com.jfoenix.controls.JFXAlert;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialogLayout;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import oliverdd.MainApp;
@@ -15,10 +18,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RootLayoutController {
+    // Used for mouse drag
+    private double xOffset = 0;
+    private double yOffset = 0;
     // Reference to the main application
     private MainApp mainApp;
     // The tools of this class
     private Tools tools;
+    @FXML
+    MenuBar menuBar;
     /*
      * called by the main application to give a reference back to itself.
      */
@@ -28,7 +36,20 @@ public class RootLayoutController {
     }
     @FXML
     private void initialize() {
-
+        menuBar.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        menuBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                mainApp.getPrimaryStage().setX(event.getScreenX() - xOffset);
+                mainApp.getPrimaryStage().setY(event.getScreenY() - yOffset);
+            }
+        });
     }
     @FXML
     private void handleRefresh(){
